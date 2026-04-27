@@ -31,6 +31,7 @@ def move_file(mv_file: str) -> None:
                 target_name = os.path.basename(dst)
             if not os.path.isfile(src):
                 raise FileNotFoundError
-            with open(src, "r") as r, open(os.path.join(current_path, target_name), "w") as w:
+            with (open(src, "r") as r,
+                  open(os.path.join(current_path, target_name), "w") as w):
                 w.write(r.read())
                 os.remove(src)
